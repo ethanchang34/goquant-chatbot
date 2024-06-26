@@ -36,3 +36,20 @@ Install required packages:
 pip install rasa spacy sqlalchemy
 python -m spacy download en_core_web_md
 ```
+
+## Training and running
+```
+rasa train
+```
+
+In one terminal,
+```
+rasa run actions
+```
+
+In another terminal,
+
+```
+rasa shell
+```
+This is where you can talk to the chatbot.
