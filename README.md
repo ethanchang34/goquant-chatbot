@@ -33,5 +33,6 @@ source .venv/bin/activate
 
 Install required packages:
 ```
-pip install -r requirements.txt
+pip install rasa spacy sqlalchemy
+python -m spacy download en_core_web_md
 ```
