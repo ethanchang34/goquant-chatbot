@@ -207,33 +207,4 @@ class ActionShowMetric(Action):
         response = f"{metric}: {value}"
         dispatcher.utter_message(text=response)
         return []
-
-        # # Fetch metric value
-        # metrics = session.query(Metrics).first()
-        # metric_generator = tracker.get_latest_entity_values('metric')
-        
-        # # Convert generator to list and ensure it's not empty
-        # metric_list = list(metric_generator)
-        # if not metric_list:
-        #     dispatcher.utter_message(text="No metric entity found.")
-        #     return []
-
-        # # Extract the metric string from the list
-        # metric = metric_list[0]
-
-        # doc = nlp(metric)
-
-        # entities = []
-        # for ent in doc.ents:
-        #     entities.append({
-        #         'entity': ent.text,
-        #         'label': ent.label_
-        #     })
-        # dispatcher.utter_message(text=f"SpaCy entities found: {entities}")
-        
-        # value = metrics.portfolio_risk_metrics[metric] if metrics else "N/A"
-
-        # response = f"{metric}: {value}"
-        # dispatcher.utter_message(text=response)
-
-        return []
+    

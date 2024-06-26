@@ -28,6 +28,9 @@ pipeline:
     threshold: 0.3
   - name: RegexEntityExtractor
     use_lookup_tables: True
+  - name: "SpacyNLP"
+    model: "en_core_web_sm" 
+  - name: "SpacyEntityExtractor" 
   # - name: DucklingHTTPExtractor
   #   url: http://localhost:8000
   #   dimensions: ["time", "number"]
