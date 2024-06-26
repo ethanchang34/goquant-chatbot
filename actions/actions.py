@@ -4,6 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from database_models import OKXAccount, Order, Metrics
 import spacy
+from fuzzywuzzy import process, fuzz
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -182,29 +183,39 @@ class ActionShowMetric(Action):
             dispatcher.utter_message(text="No metric entity found.")
             return []
 
-        value = -1
-        # map metric input to db column
-        if metric in portfolio_account_metrics:
-            metric = portfolio_account_metrics[metric]
+        # Function to find the closest match using fuzzywuzzy
+        def find_closest_match(input_metric, metrics_dict):
+            best_match, score = process.extractOne(input_metric.lower(), metrics_dict.keys(), scorer=fuzz.partial_ratio)
+            if score > 70:  # Adjust score threshold as needed
+                return (metrics_dict[best_match], score)
+            else:
+                return (None, None)
+            
+        # Try to find the closest match in each dictionary
+        matched_dict_name = None
+        metrics_dicts = {
+            'portfolio_account_metrics': portfolio_account_metrics,
+            'portfolio_return_metrics': portfolio_return_metrics,
+            'portfolio_risk_metrics': portfolio_risk_metrics
+        }
+        max_score = 0
+        closest_matched_metric = None
+        for dict_name, metrics_dict in metrics_dicts.items():
+            matched_metric, score = find_closest_match(metric, metrics_dict)
+            if matched_metric and score > max_score:
+                max_score = score
+                closest_matched_metric = matched_metric
+                matched_dict_name = dict_name
 
+        response = ""
+        if closest_matched_metric:
             # Fetch metric value
             metrics = session.query(Metrics).first()
-            value = metrics.portfolio_account_metrics[metric] if metrics else "N/A"
-        elif metric in portfolio_return_metrics:
-            metric = portfolio_return_metrics[metric]
-
-            # Fetch metric value
-            metrics = session.query(Metrics).first()
-            value = metrics.portfolio_return_metrics[metric] if metrics else "N/A"
-        elif metric in portfolio_risk_metrics:
-            metric = portfolio_risk_metrics[metric]
-
-            # Fetch metric value
-            metrics = session.query(Metrics).first()
-            value = metrics.portfolio_risk_metrics[metric] if metrics else "N/A"
+            value = getattr(metrics, matched_dict_name)[closest_matched_metric]
+            response = f"{closest_matched_metric}: {value}"
         else:
-            dispatcher.utter_message(text=f"I did not recognize {metric}. Is it spelled correctly?")
-        response = f"{metric}: {value}"
+            response = f"I did not recognize {metric}. Is it spelled correctly?"
+        
         dispatcher.utter_message(text=response)
         return []
     
