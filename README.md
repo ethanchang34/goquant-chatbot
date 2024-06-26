@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Crypto Portfolio Chatbot allows clients to interact with their portfolio metrics and trading activity data through a natural language interface. It leverages Natural Language Processing (NLP) to interpret user queries and provides insights based on data stored in various databases.
+The Crypto Portfolio Chatbot allows clients to interact with their portfolio metrics and trading activity data through a natural language interface. It leverages Natural Language Processing (NLP) to interpret user queries and provides insights based on data stored in an SQLite database ./trading.db
 
 ## Features
 
