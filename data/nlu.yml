@@ -64,25 +64,8 @@ nlu:
     - What is the [average positive pnl](metric)?
     - How much is the [fees](metric)?
     - Tell me the [cagr](metric).
-    - What is the [win rate](metric)?
-    - Show me the [up time](metric).
-    - What is the [down time](metric)?
-    - How many [total trades](metric) were done?
-    - What are the [long trades](metric)?
-    - What are the [short trades](metric)?
-    - What is the [concentration](metric)?
-    - Show me the [value at risk](metric).
-    - What is the [volatility](metric)?
-    - Tell me the [standard deviation](metric).
-    - What is the [beta](metric)?
-    - Show me the [sharpe](metric).
-    - What is the [max drawdown](metric)?
-    - What is the [drawdown period](metric)?
-    - Show me the [drawdown recovery](metric).
-    - What is the [max runup](metric)?
-    - Tell me the [runup period](metric).
 
-- regex: metric
+- lookup: metric
   examples: |
     - net asset value
     - assets

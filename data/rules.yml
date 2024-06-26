@@ -6,3 +6,8 @@ rules:
   steps:
   - intent: goodbye
   - action: action_goodbye
+
+- rule: Show the metric
+  steps:
+  - intent: show_metric
+  - action: action_show_metric

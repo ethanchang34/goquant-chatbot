@@ -7,7 +7,7 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
-metric_dict = {
+portfolio_account_metrics = {
     'net asset value': 'net_asset_value',
     'assets': 'assets',
     'cash': 'cash',
@@ -17,7 +17,9 @@ metric_dict = {
     'margin available': 'margin_available',
     'volume': 'volume',
     'turnover': 'turnover',
-    'number of trades': 'number_of_trades',
+    'number of trades': 'number_of_trades'
+}
+portfolio_return_metrics = {
     'unrealized pnl': 'unrealized_pnl',
     'realized pnl': 'realized_pnl',
     'avg pnl per trade': 'avg_pnl_per_trade',
@@ -30,7 +32,9 @@ metric_dict = {
     'down time': 'down_time',
     'total trades': 'total_trades',
     'long trades': 'long_trades',
-    'short trades': 'short_trades',
+    'short trades': 'short_trades'
+}
+portfolio_risk_metrics = {
     'concentration': 'concentration',
     'value at risk': 'value_at_risk',
     'volatility': 'volatility',
@@ -42,7 +46,6 @@ metric_dict = {
     'drawdown recovery': 'drawdown_recovery',
     'max runup': 'max_runup',
     'runup period': 'runup_period',
-    'sharpe ratio': 'sharpe_ratio'
 }
 
 class ActionGreet(Action):
@@ -174,28 +177,59 @@ class ActionShowMetric(Action):
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        # Fetch metric value
-        metrics = session.query(Metrics).first()
-        metric_generator = tracker.get_latest_entity_values('metric')
-        
-        # Convert generator to list and ensure it's not empty
-        metric_list = list(metric_generator)
-        if not metric_list:
+        metric = next(tracker.get_latest_entity_values('metric'), None)
+        if not metric:
             dispatcher.utter_message(text="No metric entity found.")
             return []
 
-        # Extract the metric string from the list
-        metric = metric_list[0]
-        
-        doc = nlp(metric)
+        value = -1
+        # map metric input to db column
+        if metric in portfolio_account_metrics:
+            metric = portfolio_account_metrics[metric]
 
-        entities = []
-        for ent in doc.ents:
-            entities.append({
-                'entity': ent.text,
-                'label': ent.label_
-            })
-        dispatcher.utter_message(text=f"SpaCy entities found: {entities}")
+            # Fetch metric value
+            metrics = session.query(Metrics).first()
+            value = metrics.portfolio_account_metrics[metric] if metrics else "N/A"
+        elif metric in portfolio_return_metrics:
+            metric = portfolio_return_metrics[metric]
+
+            # Fetch metric value
+            metrics = session.query(Metrics).first()
+            value = metrics.portfolio_return_metrics[metric] if metrics else "N/A"
+        elif metric in portfolio_risk_metrics:
+            metric = portfolio_risk_metrics[metric]
+
+            # Fetch metric value
+            metrics = session.query(Metrics).first()
+            value = metrics.portfolio_risk_metrics[metric] if metrics else "N/A"
+        else:
+            dispatcher.utter_message(text=f"I did not recognize {metric}. Is it spelled correctly?")
+        response = f"{metric}: {value}"
+        dispatcher.utter_message(text=response)
+        return []
+
+        # # Fetch metric value
+        # metrics = session.query(Metrics).first()
+        # metric_generator = tracker.get_latest_entity_values('metric')
+        
+        # # Convert generator to list and ensure it's not empty
+        # metric_list = list(metric_generator)
+        # if not metric_list:
+        #     dispatcher.utter_message(text="No metric entity found.")
+        #     return []
+
+        # # Extract the metric string from the list
+        # metric = metric_list[0]
+
+        # doc = nlp(metric)
+
+        # entities = []
+        # for ent in doc.ents:
+        #     entities.append({
+        #         'entity': ent.text,
+        #         'label': ent.label_
+        #     })
+        # dispatcher.utter_message(text=f"SpaCy entities found: {entities}")
         
         # value = metrics.portfolio_risk_metrics[metric] if metrics else "N/A"
 
