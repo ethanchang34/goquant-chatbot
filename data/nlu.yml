@@ -46,6 +46,7 @@ nlu:
   examples: |
     - Show me my {metric}
     - What is my {metric}
+    - What's my {metric}
     - Show me the {metric}.
     - Can you provide details on {metric}?
     - I want to know about {metric}.

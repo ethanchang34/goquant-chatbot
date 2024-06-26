@@ -1,0 +1,6 @@
+[
+  {
+    "name": "metric",
+    "pattern": "(\\bnet\\ asset\\ value\\b|\\bassets\\b|\\bcash\\b|\\bmargin\\b|\\bbuying\\ power\\b|\\bmargin\\ utilization\\b|\\bmargin\\ available\\b|\\bvolume\\b|\\bturnover\\b|\\bnumber\\ of\\ trades\\b|\\bunrealized\\ pnl\\b|\\brealized\\ pnl\\b|\\bavg\\ pnl\\ per\\ trade\\b|\\bavg\\ positive\\ pnl\\b|\\bavg\\ negative\\ pnl\\b|\\bfees\\b|\\bcagr\\b|\\bwin\\ rate\\b|\\bup\\ time\\b|\\bdown\\ time\\b|\\btotal\\ trades\\b|\\blong\\ trades\\b|\\bshort\\ trades\\b|\\bconcentration\\b|\\bvalue\\ at\\ risk\\b|\\bvolatility\\b|\\bstandard\\ deviation\\b|\\bbeta\\b|\\bsharpe\\b|\\bmax\\ drawdown\\b|\\bdrawdown\\ period\\b|\\bdrawdown\\ recovery\\b|\\bmax\\ runup\\b|\\brunup\\ period\\b|\\bsharpe\\ ratio\\b)"
+  }
+]

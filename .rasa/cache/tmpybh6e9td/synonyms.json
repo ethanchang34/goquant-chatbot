@@ -1,0 +1,17 @@
+{
+  "net asset value": "net asset value",
+  "assets": "assets",
+  "cash": "cash",
+  "margin": "margin",
+  "buying power": "buying power",
+  "margin utilization": "margin utilization",
+  "volume": "volume",
+  "turnover": "turnover",
+  "number of trades": "number of trades",
+  "unrealized pnl": "unrealized pnl",
+  "realized pnl": "realized pnl",
+  "average pnl per trade": "average pnl per trade",
+  "average positive pnl": "average positive pnl",
+  "fees": "fees",
+  "cagr": "cagr"
+}
