@@ -1,0 +1,121 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hello
+    - Hey
+    - Greetings
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - Goodbye
+    - See you soon
+    - Bye bye
+    - Have a nice day
+    - Have a good day
+
+- intent: show_portfolio_performance
+  examples: |
+    - Show my portfolio performance for the last month
+    - How did my portfolio perform last month?
+
+- intent: current_value_holdings
+  examples: |
+    - What is the current value of my holdings?
+    - How much are my holdings worth?
+
+- intent: summarize_trading_activities
+  examples: |
+    - Summarize my recent trading activities
+    - What are my latest trades?
+
+- intent: last_trade_fee
+  examples: |
+    - What was my last trade fee?
+    - Tell me the fee of my last trade
+
+- intent: current_positions
+  examples: |
+    - What are my current positions?
+    - Show my current holdings
+
+- intent: show_metric
+  examples: |
+    - Show me my {metric}
+    - What is my {metric}
+    - Show me the {metric}.
+    - Can you provide details on {metric}?
+    - I want to know about {metric}.
+    - What is the [net asset value](metric)?
+    - Tell me the [assets](metric).
+    - How much is the [cash](metric)?
+    - Show me the [margin](metric).
+    - What is the [buying power](metric)?
+    - I want to know the [margin utilization](metric).
+    - Tell me about the [volume](metric).
+    - What is the [turnover](metric)?
+    - How many [number of trades](metric) were made?
+    - What is the [unrealized pnl](metric)?
+    - Give me the [realized pnl](metric).
+    - Show the [average pnl per trade](metric).
+    - What is the [average positive pnl](metric)?
+    - How much is the [fees](metric)?
+    - Tell me the [cagr](metric).
+    - What is the [win rate](metric)?
+    - Show me the [up time](metric).
+    - What is the [down time](metric)?
+    - How many [total trades](metric) were done?
+    - What are the [long trades](metric)?
+    - What are the [short trades](metric)?
+    - What is the [concentration](metric)?
+    - Show me the [value at risk](metric).
+    - What is the [volatility](metric)?
+    - Tell me the [standard deviation](metric).
+    - What is the [beta](metric)?
+    - Show me the [sharpe](metric).
+    - What is the [max drawdown](metric)?
+    - What is the [drawdown period](metric)?
+    - Show me the [drawdown recovery](metric).
+    - What is the [max runup](metric)?
+    - Tell me the [runup period](metric).
+
+- regex: metric
+  examples: |
+    - net asset value
+    - assets
+    - cash
+    - margin
+    - buying power
+    - margin utilization
+    - margin available
+    - volume
+    - turnover
+    - number of trades
+    - unrealized pnl
+    - realized pnl
+    - avg pnl per trade
+    - avg positive pnl
+    - avg negative pnl
+    - fees
+    - cagr
+    - win rate
+    - up time
+    - down time
+    - total trades
+    - long trades
+    - short trades
+    - concentration
+    - value at risk
+    - volatility
+    - standard deviation
+    - beta
+    - sharpe
+    - max drawdown
+    - drawdown period
+    - drawdown recovery
+    - max runup
+    - runup period
+    - sharpe ratio

@@ -1,0 +1,50 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - show_portfolio_performance
+  - current_value_holdings
+  - summarize_trading_activities
+  - last_trade_fee
+  - current_positions
+  - show_metric
+
+entites:
+  - metric
+
+slots:
+  metric:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: metric
+
+responses:
+  action_greet:
+  - text: "Hello! How can I help you?"
+
+  action_goodbye:
+  - text: "Goodbye!"
+
+  action_show_portfolio_performance:
+  - text: "action_show_portfolio_performance"
+
+  action_current_value_holdings:
+  - text: "action_current_value_holdings"
+
+  action_summarize_trading_activities:
+  - text: "action_summarize_trading_activities"
+
+  action_last_trade_fee:
+  - text: "action_last_trade_fee"
+
+  action_current_positions:
+  - text: "action_current_positions"
+
+  action_show_metric:
+  - text: "action_show_metric"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

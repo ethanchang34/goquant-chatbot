@@ -1,0 +1,56 @@
+version: "2.0"
+
+stories:
+
+- story: greet and show portfolio performance
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: show_portfolio_performance
+  - action: action_show_portfolio_performance
+
+- story: inquire about current value of holdings
+  steps:
+  - intent: current_value_holdings
+  - action: action_current_value_holdings
+
+- story: summarize recent trading activities
+  steps:
+  - intent: summarize_trading_activities
+  - action: action_summarize_trading_activities
+
+- story: inquire about last trade fee
+  steps:
+  - intent: last_trade_fee
+  - action: action_last_trade_fee
+
+- story: inquire about current positions
+  steps:
+  - intent: current_positions
+  - action: action_current_positions
+
+- story: greet and then inquire about last trade fee
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: last_trade_fee
+  - action: action_last_trade_fee
+
+- story: inquire about current positions after greeting
+  steps:
+  - intent: greet
+  - action: action_greet
+  - intent: current_positions
+  - action: action_current_positions
+
+- story: show portfolio performance after summarizing trading activities
+  steps:
+  - intent: summarize_trading_activities
+  - action: action_summarize_trading_activities
+  - intent: show_portfolio_performance
+  - action: action_show_portfolio_performance
+
+- story: show metric
+  steps:
+  - intent: show_metric
+  - action: action_show_metric

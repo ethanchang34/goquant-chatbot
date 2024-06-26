@@ -1,0 +1,142 @@
+[
+  {
+    "name": "metric",
+    "pattern": "assets"
+  },
+  {
+    "name": "metric",
+    "pattern": "avg negative pnl"
+  },
+  {
+    "name": "metric",
+    "pattern": "avg pnl per trade"
+  },
+  {
+    "name": "metric",
+    "pattern": "avg positive pnl"
+  },
+  {
+    "name": "metric",
+    "pattern": "beta"
+  },
+  {
+    "name": "metric",
+    "pattern": "buying power"
+  },
+  {
+    "name": "metric",
+    "pattern": "cagr"
+  },
+  {
+    "name": "metric",
+    "pattern": "cash"
+  },
+  {
+    "name": "metric",
+    "pattern": "concentration"
+  },
+  {
+    "name": "metric",
+    "pattern": "down time"
+  },
+  {
+    "name": "metric",
+    "pattern": "drawdown period"
+  },
+  {
+    "name": "metric",
+    "pattern": "drawdown recovery"
+  },
+  {
+    "name": "metric",
+    "pattern": "fees"
+  },
+  {
+    "name": "metric",
+    "pattern": "long trades"
+  },
+  {
+    "name": "metric",
+    "pattern": "margin"
+  },
+  {
+    "name": "metric",
+    "pattern": "margin available"
+  },
+  {
+    "name": "metric",
+    "pattern": "margin utilization"
+  },
+  {
+    "name": "metric",
+    "pattern": "max drawdown"
+  },
+  {
+    "name": "metric",
+    "pattern": "max runup"
+  },
+  {
+    "name": "metric",
+    "pattern": "net asset value"
+  },
+  {
+    "name": "metric",
+    "pattern": "number of trades"
+  },
+  {
+    "name": "metric",
+    "pattern": "realized pnl"
+  },
+  {
+    "name": "metric",
+    "pattern": "runup period"
+  },
+  {
+    "name": "metric",
+    "pattern": "sharpe"
+  },
+  {
+    "name": "metric",
+    "pattern": "sharpe ratio"
+  },
+  {
+    "name": "metric",
+    "pattern": "short trades"
+  },
+  {
+    "name": "metric",
+    "pattern": "standard deviation"
+  },
+  {
+    "name": "metric",
+    "pattern": "total trades"
+  },
+  {
+    "name": "metric",
+    "pattern": "turnover"
+  },
+  {
+    "name": "metric",
+    "pattern": "unrealized pnl"
+  },
+  {
+    "name": "metric",
+    "pattern": "up time"
+  },
+  {
+    "name": "metric",
+    "pattern": "value at risk"
+  },
+  {
+    "name": "metric",
+    "pattern": "volatility"
+  },
+  {
+    "name": "metric",
+    "pattern": "volume"
+  },
+  {
+    "name": "metric",
+    "pattern": "win rate"
+  }
+]
